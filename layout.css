@@ -1,0 +1,19 @@
+div {
+  background-color: #f2efef;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+}
+button {
+  background-color: #483c8a;
+  color: white;
+  border-radius: 5px;
+}
+.indicator {
+  font-size: small;
+  display: inline;
+  float: right;
+}
+h2 {
+  margin-top: -0.5rem;
+}

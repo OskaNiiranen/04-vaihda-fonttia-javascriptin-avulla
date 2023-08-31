@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&family=Mansalva&family=Grenze&family=Turret+Road&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="layout.css" />
+
+    <title>Fontin muutos JavaScriptillä</title>
+  </head>
+  <body>
+    <div>
+      <h2>Muuta fonttikokoa Javascriptillä</h2>
+      <p>Huom! Kaikki muutokset tapahtuvat Javascriptin avulla.</p>
+      <p>Sivun fonttikokoa muutetaan alla olevaa nappia painamalla.</p>
+      <p>Sivun oletusfonttikoko on 16px.</p>
+      <h3>Sivun fonttikoko muuttuu napista painamalla</h3>
+      <ol id="fontSizeList">
+        <li>Ensimmäinen napin painallus muuttaa fonttikooksi 20px</li>
+        <li>Toinen napin painallus muuttaa fonttikooksi 24px</li>
+        <li>Kolmas napin painallus muuttaa fonttikooksi 28px</li>
+        <li>Neljäs napin painallus muuttaa fonttikooksi 32px</li>
+        <li>Viides napin painallus palauttaa fonttikoon 16px</li>
+      </ol>
+      <button onclick="changeFontSize()">Fontin koko</button>
+      <p class="indicator">
+        Fonttikoko on nyt: <span id="fontSize">16px</span>
+      </p>
+    </div>
+    <div>
+      <h2>Muuta fonttityyppiä Javascriptillä</h2>
+      <p>Huom! Kaikki muutokset tapahtuvat Javascriptin avulla.</p>
+      <p>Sivun fonttityyppiä vaihdetaan alla olevaa painonappia painamalla.</p>
+      <p>Sivun oletusfontti on "Courier New"</p>
+      <h3>Sivun fonttityyppi muuttuu napista painamalla</h3>
+      <ol id="fontFamilyList">
+        <li>Ensimmäinen napin painallus muuttaa fonttityypiksi "Roboto"</li>
+        <li>Toinen napin painallus muuttaa fonttityypiksi "Mansalva"</li>
+        <li>Kolmas napin painallus muuttaa fonttityypiksi "Grenze"</li>
+        <li>Neljäs napin painallus muuttaa fonttityypiksi "Turret Road"</li>
+        <li>Viides napin painallus palauttaa fonttityypin "Courier New"</li>
+      </ol>
+      <button onclick="changeFontFamily()">Muuta fonttia</button>
+      <p class="indicator">
+        Fontti on nyt:
+        <span id="fontFamily">"Courier New"</span>
+      </p>
+    </div>
+
+    <script>
+      const fontSizeList = ["16px", "20px", "24px", "28px", "32px"];
+      const fontFamilyList = [
+        "Courier New",
+        "Roboto",
+        "Mansalva",
+        "Grenze",
+        "Turret Road",
+      ];
+      let fontSizeIndex = 0;
+      let fontFamilyIndex = 0;
+
+      function changeFontSize() {
+        document.body.style.fontSize = fontSizeList[fontSizeIndex];
+        document.getElementById("fontSize").textContent =
+          fontSizeList[fontSizeIndex];
+        fontSizeIndex = (fontSizeIndex + 1) % fontSizeList.length;
+      }
+
+      function changeFontFamily() {
+        document.body.style.fontFamily = fontFamilyList[fontFamilyIndex];
+        document.getElementById("fontFamily").textContent =
+          '"' + fontFamilyList[fontFamilyIndex] + '"';
+        fontFamilyIndex = (fontFamilyIndex + 1) % fontFamilyList.length;
+      }
+
+      // Ensimmäisen napin painallus sivun latautuessa
+      changeFontSize();
+      changeFontFamily();
+    </script>
+  </body>
+</html>
